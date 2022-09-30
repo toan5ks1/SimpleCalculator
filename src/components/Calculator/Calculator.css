@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  background-color: aquamarine;
+}
+
+.calculator__container {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* flex-direction: column;
+  align-items: center; */
+}
+
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  margin-top: 0.5rem;
+  grid-template-columns: repeat(4, 6rem);
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.span-four {
+  grid-column: 1 / -1;
+}
