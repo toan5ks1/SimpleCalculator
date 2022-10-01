@@ -2,11 +2,16 @@ import React from "react";
 import "./DisplayScreen.css";
 
 const DisplayScreen = (props) => {
-  const { className } = props;
+  const { className, displayData } = props;
+  const { currentResult, previousResult, operation } = displayData;
+
   return (
-    <div className={`${className} displayscreen__container`}>
-      <div className="previous-result">123 *</div>
-      <div className="current-result">123</div>
+    <div className={`${className} displayscreen-container`}>
+      <div className="previous-result">
+        {previousResult}
+        {operation}
+      </div>
+      <div className="current-result">{currentResult}</div>
     </div>
   );
 };
