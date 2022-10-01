@@ -1,13 +1,6 @@
 body {
   margin: 0;
-  background-color: aquamarine;
-}
-
-.calculator__container {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* flex-direction: column;
-  align-items: center; */
+  background-color: var(--background-color);
 }
 
 .calculator-grid {
@@ -24,4 +17,20 @@ body {
 
 .span-four {
   grid-column: 1 / -1;
+}
+
+.button-base {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: var(--secondary-text);
+}
+
+.button-base:hover {
+  background-color: lightgoldenrodyellow;
+}
+
+.button-base:focus {
+  background-color: burlywood;
 }

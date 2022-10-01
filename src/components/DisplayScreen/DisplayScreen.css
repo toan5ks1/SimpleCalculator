@@ -1,5 +1,5 @@
-.displayscreen__container {
-  background-color: rgba(0, 0, 0, 0.75);
+.displayscreen-container {
+  background-color: var(--monitor-color);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -10,11 +10,11 @@
 }
 
 .previous-result {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--secondary-text);
   font-size: 1.5rem;
 }
 
 .current-result {
-  color: white;
+  color: var(--primary-text);
   font-size: 2.5rem;
 }

@@ -1,33 +1,50 @@
-import React from "react";
+import React, { useReducer } from "react";
 import "./Calculator.css";
 import DisplayScreen from "../DisplayScreen";
-import ButtonBase from "../ButtonBase/ButtonBase";
+import DigitButton from "../DigitButton/DigitButton";
+import reducer, { initState } from "../../store/reducer";
+import OperationButton from "../OperationButton";
+import { actions } from "../../store";
+import FunctionButton from "../FunctionButton";
 
 const Calculator = () => {
+  const [state, dispatch] = useReducer(reducer, initState);
+
   return (
-    <div className="calculator__container">
-      <div className="calculator-grid">
-        <DisplayScreen className="span-four" />
-        {/* Calculator Numpad */}
-        <ButtonBase className="span-two">AC</ButtonBase>
-        <ButtonBase>DEL</ButtonBase>
-        <ButtonBase>÷</ButtonBase>
-        <ButtonBase>1</ButtonBase>
-        <ButtonBase>2</ButtonBase>
-        <ButtonBase>3</ButtonBase>
-        <ButtonBase>*</ButtonBase>
-        <ButtonBase>4</ButtonBase>
-        <ButtonBase>5</ButtonBase>
-        <ButtonBase>6</ButtonBase>
-        <ButtonBase>+</ButtonBase>
-        <ButtonBase>7</ButtonBase>
-        <ButtonBase>8</ButtonBase>
-        <ButtonBase>9</ButtonBase>
-        <ButtonBase>-</ButtonBase>
-        <ButtonBase>.</ButtonBase>
-        <ButtonBase>0</ButtonBase>
-        <ButtonBase className="span-two">=</ButtonBase>
-      </div>
+    <div className="calculator-grid">
+      <DisplayScreen className="span-four" displayData={state} />
+
+      {/* Calculator Numpad */}
+      <FunctionButton
+        dispatch={() => dispatch(actions.clear())}
+        className="span-two"
+      >
+        AC
+      </FunctionButton>
+      <FunctionButton dispatch={() => dispatch(actions.deleteDigit())}>
+        DEL
+      </FunctionButton>
+      <OperationButton dispatch={dispatch}>÷</OperationButton>
+      <DigitButton dispatch={dispatch}>1</DigitButton>
+      <DigitButton dispatch={dispatch}>2</DigitButton>
+      <DigitButton dispatch={dispatch}>3</DigitButton>
+      <OperationButton dispatch={dispatch}>*</OperationButton>
+      <DigitButton dispatch={dispatch}>4</DigitButton>
+      <DigitButton dispatch={dispatch}>5</DigitButton>
+      <DigitButton dispatch={dispatch}>6</DigitButton>
+      <OperationButton dispatch={dispatch}>+</OperationButton>
+      <DigitButton dispatch={dispatch}>7</DigitButton>
+      <DigitButton dispatch={dispatch}>8</DigitButton>
+      <DigitButton dispatch={dispatch}>9</DigitButton>
+      <OperationButton dispatch={dispatch}>-</OperationButton>
+      <DigitButton dispatch={dispatch}>.</DigitButton>
+      <DigitButton dispatch={dispatch}>0</DigitButton>
+      <FunctionButton
+        dispatch={() => dispatch(actions.evaluate())}
+        className="span-two"
+      >
+        =
+      </FunctionButton>
     </div>
   );
 };
